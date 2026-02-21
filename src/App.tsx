@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
-import Base from './pages/Base'
+import InDevelopment from './pages/InDevelopment'
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Base />} />
+      <Route path="/" element={<InDevelopment />} />
     </Routes>
   )
 }

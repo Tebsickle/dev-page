@@ -1,6 +1,9 @@
-import '../styles/Base.css'
+import { useNavigate } from 'react-router-dom'
+import '../styles/InDevelopment.css'
 
 export default function Base() {
+  const navigate = useNavigate()
+
   return (
     <div className="container">
       <div className="content">
@@ -9,9 +12,7 @@ export default function Base() {
           This page is not finished. Check back soon!
         </p>
 
-        <a href="https://samsmithers.com">
-          <button>Go Back</button>
-        </a>
+        <button onClick={() => navigate(-1)}>Go Back</button>
       </div>
     </div>
   );
