@@ -1,6 +1,6 @@
 import '../styles/Home.css'
 import Background from '../components/Background'
-// import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar'
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <div className="background-container">
         <Background />
       </div>
-      {/* <NavBar /> */}
+      <Navbar />
       <div className="container">
 
       </div>
