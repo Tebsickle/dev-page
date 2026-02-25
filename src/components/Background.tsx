@@ -36,18 +36,23 @@ export default function Background() {
 		const NODE_COLOR_ALT = 0x00d4ff // Alternate color for some nodes (cyan/blue)
 		const NODE_COLOR_MIX = 0x7b1fa2 // Mixed color for connections between primary and alt nodes (purple)
 		const ALT_COLOR_PROBABILITY = 0.3 // Probability (0-1) that a node uses the alternate color
-		const NODE_COUNT = 100 // Total number of nodes to create
+		const NODE_COUNT = 160 // Total number of nodes to create
+		const BACKGROUND_NODE_COUNT = 60 // Extra nodes that do not connect to lines
 		const CONNECTION_DISTANCE = 2.2 // Maximum distance to draw connections between nodes
 		const NODE_SIZE = 0.015 // Radius of each node sphere
+		const BACKGROUND_NODE_SIZE = 0.01 // Slightly smaller for background-only nodes
 		const MOVEMENT_SPEED = 0.3 // How fast nodes drift around
-		const BOUNDARY = 4 // Keep nodes within this boundary
+		const BACKGROUND_MOVEMENT_SPEED = 0.8 // Slower movement for background-only nodes
+		const BOUNDARY = 6 // Keep nodes within this boundary
 
 		// Array to store all node objects
 		const nodes: Node[] = []
+		const backgroundNodes: Node[] = []
 
 		// Create geometry and materials that will be reused for all nodes
 		// Using shared geometry and materials improves performance
 		const nodeGeometry = new three.SphereGeometry(NODE_SIZE, 16, 16)
+		const backgroundGeometry = new three.SphereGeometry(BACKGROUND_NODE_SIZE, 16, 16)
 		const nodeMaterial = new three.MeshBasicMaterial({ color: NODE_COLOR })
 		const nodeMaterialAlt = new three.MeshBasicMaterial({ color: NODE_COLOR_ALT })
 
@@ -80,6 +85,29 @@ export default function Background() {
 			
 			// Store the node data for later use
 			nodes.push({ position, velocity, mesh })
+		}
+
+		// Generate background-only nodes (no line connections)
+		for (let i = 0; i < BACKGROUND_NODE_COUNT; i++) {
+			const useAltColor = Math.random() < ALT_COLOR_PROBABILITY
+			const material = useAltColor ? nodeMaterialAlt : nodeMaterial
+			const mesh = new three.Mesh(backgroundGeometry, material)
+
+			const position = new three.Vector3(
+				(Math.random() - 0.5) * BOUNDARY * 2,
+				(Math.random() - 0.5) * BOUNDARY * 2,
+				(Math.random() - 0.5) * BOUNDARY * 2
+			)
+			mesh.position.copy(position)
+
+			const velocity = new three.Vector3(
+				(Math.random() - 0.5) * BACKGROUND_MOVEMENT_SPEED,
+				(Math.random() - 0.5) * BACKGROUND_MOVEMENT_SPEED,
+				(Math.random() - 0.5) * BACKGROUND_MOVEMENT_SPEED
+			)
+
+			scene.add(mesh)
+			backgroundNodes.push({ position, velocity, mesh })
 		}
 
 		// Create three separate line segment groups for different connection types
@@ -195,10 +223,9 @@ export default function Background() {
 			// Keep camera always looking at the center of the scene
 			camera.lookAt(0, 0, 0)
 
-			// Update each node's position based on its velocity
-			nodes.forEach(node => {
+			const updateNodePosition = (node: Node, speedScale: number) => {
 				// Move the node
-				node.position.add(node.velocity.clone().multiplyScalar(0.01))
+				node.position.add(node.velocity.clone().multiplyScalar(speedScale))
 				
 				// Bounce off boundaries - reverse velocity when hitting edges
 				if (Math.abs(node.position.x) > BOUNDARY) {
@@ -217,7 +244,11 @@ export default function Background() {
 				
 				// Update the visual mesh position to match the logical position
 				node.mesh.position.copy(node.position)
-			})
+			}
+
+			// Update each node's position based on its velocity
+			nodes.forEach(node => updateNodePosition(node, 0.01))
+			backgroundNodes.forEach(node => updateNodePosition(node, 0.01))
 			
 			// Recalculate which nodes should be connected
 			updateConnections()
@@ -238,6 +269,7 @@ export default function Background() {
 			
 			// Dispose of geometries and materials to free memory
 			nodeGeometry.dispose()
+			backgroundGeometry.dispose()
 			nodeMaterial.dispose()
 			nodeMaterialAlt.dispose()
 			linePrimaryGeometry.dispose()
