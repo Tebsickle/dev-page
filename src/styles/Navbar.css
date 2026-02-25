@@ -7,7 +7,10 @@
 	z-index: 1000;
 	
 	display: flex;
+	align-items: center;
 	padding: 0.3rem 0.6rem;
+
+	width: 350px;
 	
 	background: rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(10px);
@@ -22,23 +25,35 @@
 	border: none;
 	cursor: pointer;
 	
-	color: #ffffff;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	color: #ffd0ec;
 	font-size: 16px;
 	font-weight: 500;
 	font-family: inherit;
-	
-	padding: 10px 20px;
 	border-radius: 25px;
+
+	width:min-content;
 	
 	transition: all 0.3s ease;
+
+	background: rgba(255, 255, 255, 0.02);
+
+	margin: 0.1rem 0.4rem;
+
+	border: 1px solid #ffd0ec53;
+
 }
 
 .nav-button:hover {
 	background: rgba(255, 255, 255, 0.2);
-	transform: translateY(-2px);
+	border: 1px solid #ffd0ec;
 }
 
-
-.nav-button:active {
-	transform: translateY(0);
+.nav-button.highlighted {
+	color: #a90046;
+	font-weight: 800;
 }
