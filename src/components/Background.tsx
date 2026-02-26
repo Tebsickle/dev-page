@@ -43,7 +43,7 @@ export default function Background() {
 		const BACKGROUND_NODE_SIZE = 0.01 // Slightly smaller for background-only nodes
 		const MOVEMENT_SPEED = 0.3 // How fast nodes drift around
 		const BACKGROUND_MOVEMENT_SPEED = 0.8 // Slower movement for background-only nodes
-		const BOUNDARY = 6 // Keep nodes within this boundary
+		const BOUNDARY = 5.5 // Keep nodes within this boundary
 
 		// Array to store all node objects
 		const nodes: Node[] = []
