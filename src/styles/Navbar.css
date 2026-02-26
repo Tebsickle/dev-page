@@ -48,9 +48,14 @@
 
 }
 
-.nav-button:hover {
+.nav-button:not(:disabled):hover {
 	background: rgba(255, 255, 255, 0.2);
 	border: 1px solid #ffd0ec;
+}
+
+.nav-button:disabled {
+	cursor:default;
+	border: inherit;
 }
 
 .nav-button.highlighted {

@@ -8,7 +8,7 @@ export default function Home() {
       <div className="background-container">
         <Background />
       </div>
-      <Navbar highlight="home" />
+      <Navbar highlight="home" disabled="home" />
       <div className="container">
 
       </div>
