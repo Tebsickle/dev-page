@@ -1,3 +1,5 @@
+@import './global.css';
+
 .navbar {
 
 	position: fixed;
@@ -12,12 +14,11 @@
 
 	width: 350px;
 	
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
+	background: var(--background-dark);
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
 	border-radius: 50px;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 .nav-button {
@@ -30,7 +31,7 @@
 	align-items: center;
 	justify-content: center;
 	
-	color: #ffd0ec;
+	color: var(--text);
 	font-size: 16px;
 	font-weight: 500;
 	font-family: inherit;
@@ -43,6 +44,7 @@
 	background: rgba(255, 255, 255, 0.02);
 
 	margin: 0.1rem 0.4rem;
+	padding: 0.6rem 1.2rem;
 
 	border: 1px solid #ffd0ec53;
 
@@ -59,6 +61,6 @@
 }
 
 .nav-button.highlighted {
-	color: #a90046;
+	color: var(--text-highlighted);
 	font-weight: 800;
 }
