@@ -1,5 +1,6 @@
 :root {
   background-color: var(--background-color);
+  --card-border: rgba(128, 128, 128, 0.2);
 }
 
 
@@ -19,9 +20,11 @@
   display: flex;
   margin: 0px 100px;
   margin-top: 100px;
-  min-height: 85%;
+  max-height: 85%;
   background: transparent;
   gap: 2rem;
+
+  color: var(--text);
 }
 
 .home-recent {
@@ -29,6 +32,10 @@
   flex-direction: column;
   gap: 0.5rem;
   flex: 1;
+  overflow: hidden;
+  border-radius: 40px;
+
+  scroll-behavior: smooth;
 }
 
 .home-right {
@@ -52,5 +59,32 @@
 	backdrop-filter: blur(2px);
 	-webkit-backdrop-filter: blur(2px);
 	border-radius: 40px;
-	border: 1px solid rgba(128, 128, 128, 0.2); 
+	border: 1px solid var(--card-border);
+  transition: all 0.3s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.home-card:hover {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.recent-header {
+  align-self: center;
+}
+
+.recent-fetch {
+  overflow-y: scroll;
+  max-height: calc(100vh - 200px);
+}
+
+.commit-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  margin: 0.5rem;
+
+  border: 1px solid var(--card-border);
+  border-radius: 30px;
 }
