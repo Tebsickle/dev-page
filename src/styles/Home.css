@@ -107,4 +107,45 @@
 
   border: 1px solid var(--card-border);
   border-radius: 30px;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.commit-item:hover {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.commit-message {
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.commit-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.commit-author {
+  color: var(--text);
+}
+
+.commit-date {
+  color: var(--text);
+  font-style: italic;
+}
+
+.commit-link {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.commit-link:hover {
+  opacity: 1;
 }
