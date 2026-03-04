@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import WIP from './pages/InDevelopment'
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import Projects from './pages/Projects'
 import Background from './components/Background'
 import './styles/Background.css'
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/wip" element={<WIP />} />
       </Routes>

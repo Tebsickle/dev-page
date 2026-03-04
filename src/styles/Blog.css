@@ -1,0 +1,114 @@
+:root {
+  background-color: var(--background-color);
+  --card-border: rgba(128, 128, 128, 0.2);
+}
+
+.blog-content {
+  display: flex;
+  margin: 0px 100px;
+  margin-top: 100px;
+  min-height: 85%;
+  max-height: 85%;
+  background: transparent;
+  gap: 2rem;
+  color: var(--text);
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 40px;
+  scroll-behavior: smooth;
+}
+
+.blog-card {
+  background: var(--background-dark);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 40px;
+  border: 1px solid var(--card-border);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.blog-header {
+  align-self: center;
+  margin-bottom: 0;
+}
+
+.blog-list {
+  overflow-y: scroll;
+  max-height: calc(100vh - 200px);
+}
+
+/* Custom scrollbar styling */
+.blog-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.blog-list::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 10px;
+}
+
+.blog-list::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.4);
+  border-radius: 10px;
+}
+
+.blog-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.6);
+}
+
+.blog-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.8rem;
+  margin: 0.5rem;
+  border: 1px solid var(--card-border);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s ease-in-out;
+}
+
+.blog-item:hover {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.blog-item-title {
+  margin: 0;
+}
+
+.blog-item-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.blog-item-author {
+  color: var(--text);
+}
+
+.blog-item-date {
+  color: var(--text);
+  font-style: italic;
+}
+
+.blog-item-link {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}

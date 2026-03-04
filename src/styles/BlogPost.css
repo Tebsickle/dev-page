@@ -1,0 +1,71 @@
+.blog-markdown {
+	padding: 0 1.5rem 1.5rem;
+	line-height: 1.6;
+}
+
+.blog-post-meta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.2rem;
+	padding: 0 1.5rem;
+	margin-bottom: 1rem;
+	font-size: 0.95rem;
+	opacity: 0.8;
+}
+
+.blog-post-author {
+	color: var(--text);
+}
+
+.blog-post-date {
+	color: var(--text);
+	font-style: italic;
+}
+
+.blog-markdown .blog-header {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0.6rem;
+}
+
+.blog-markdown h1,
+.blog-markdown h2,
+.blog-markdown h3,
+.blog-markdown h4,
+.blog-markdown h5,
+.blog-markdown h6 {
+	margin-top: 1.2rem;
+	margin-bottom: 0.6rem;
+}
+
+.blog-markdown p,
+.blog-markdown ul,
+.blog-markdown ol,
+.blog-markdown blockquote,
+.blog-markdown pre {
+	margin: 0.8rem 0;
+}
+
+.blog-markdown code {
+	background: rgba(128, 128, 128, 0.15);
+	padding: 0.15rem 0.35rem;
+	border-radius: 6px;
+}
+
+.blog-markdown pre code {
+	display: block;
+	padding: 0.8rem;
+	overflow-x: auto;
+}
+
+.blog-markdown a,
+.blog-back-link {
+	color: var(--text);
+	opacity: 0.9;
+}
+
+.blog-markdown a:hover,
+.blog-back-link:hover {
+	opacity: 1;
+}
