@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as three from 'three'
+import '../styles/Background.css'
 
 // Define the structure for each node in our particle network
 interface Node {

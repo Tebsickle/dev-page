@@ -1,5 +1,11 @@
-import { Navigate } from 'react-router-dom';
+import Navbar from "../components/Navbar";
+
 
 export default function Projects() {
-  return <Navigate to="/wip" replace />;
+  return (
+  <>
+    <Navbar highlight="projects" disabled="projects" />
+    <h1>Not implemented yet!</h1>
+  </>
+  )
 }

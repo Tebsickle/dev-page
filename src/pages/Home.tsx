@@ -1,5 +1,4 @@
 import '../styles/Home.css'
-import Background from '../components/Background'
 import Navbar from '../components/Navbar'
 import RecentFetch from '../components/home/RecentFetch'
 
@@ -8,9 +7,6 @@ export default function Home() {
   return (
     <>
       <Navbar highlight="home" disabled="home" />
-      <div className="background-container">
-        <Background />
-      </div>
       <div className="home-content">
         
         <div className="home-card home-recent">
