@@ -20,6 +20,7 @@
   display: flex;
   margin: 0px 100px;
   margin-top: 100px;
+  min-height: 85%;
   max-height: 85%;
   background: transparent;
   gap: 2rem;
@@ -77,6 +78,25 @@
 .recent-fetch {
   overflow-y: scroll;
   max-height: calc(100vh - 200px);
+}
+
+/* Custom scrollbar styling */
+.recent-fetch::-webkit-scrollbar {
+  width: 8px;
+}
+
+.recent-fetch::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 10px;
+}
+
+.recent-fetch::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.4);
+  border-radius: 10px;
+}
+
+.recent-fetch::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.6);
 }
 
 .commit-item {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { fetchRecentCommits } from '../../utils/home/RecentFetchAPI'
+import { config } from '../../config/config'
 
 interface Commit {
   message: string
@@ -18,7 +19,7 @@ export default function RecentFetch() {
   useEffect(() => {
     const getCommits = async () => {
       setLoading(true)
-      const result = await fetchRecentCommits('Tebsickle', 'dev-page', 10)
+      const result = await fetchRecentCommits('Tebsickle', 'dev-page', config.COMMIT_FETCH_COUNT)
 
       if (result.error) {
         setError(result.error)

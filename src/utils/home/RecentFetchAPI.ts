@@ -1,3 +1,5 @@
+import { config } from "../../config/config"
+
 interface Commit {
   message: string
   url: string
@@ -12,11 +14,6 @@ export interface CommitData {
   error?: string
 }
 
-// ============= CONFIGURATION =============
-const ENABLE_CACHING = true // Set to false to disable caching
-const CACHE_DURATION = 2 * 60 * 1000 // 2 minutes in milliseconds
-// ==========================================
-
 interface CacheEntry {
   data: CommitData
   timestamp: number
@@ -29,7 +26,7 @@ function getCacheKey(owner: string, repo: string, limit: number): string {
 }
 
 function isCacheValid(timestamp: number): boolean {
-  return Date.now() - timestamp < CACHE_DURATION
+  return Date.now() - timestamp < config.RECENT_FETCH_CACHE_DURATION
 }
 
 export async function fetchRecentCommits(
@@ -40,7 +37,7 @@ export async function fetchRecentCommits(
   const cacheKey = getCacheKey(owner, repo, limit)
 
   // Check cache only if caching is enabled
-  if (ENABLE_CACHING) {
+  if (config.RECENT_FETCH_CACHING) {
     const cachedEntry = cache.get(cacheKey)
     if (cachedEntry && isCacheValid(cachedEntry.timestamp)) {
       return cachedEntry.data
@@ -57,7 +54,7 @@ export async function fetchRecentCommits(
         commits: [],
         error: `GitHub API error: ${response.status}`,
       }
-      if (ENABLE_CACHING) {
+      if (config.RECENT_FETCH_CACHING) {
         cache.set(cacheKey, { data: errorData, timestamp: Date.now() })
       }
       return errorData
@@ -75,7 +72,7 @@ export async function fetchRecentCommits(
     }))
 
     const commitData = { commits }
-    if (ENABLE_CACHING) {
+    if (config.RECENT_FETCH_CACHING) {
       cache.set(cacheKey, { data: commitData, timestamp: Date.now() })
     }
     return commitData
@@ -84,7 +81,7 @@ export async function fetchRecentCommits(
       commits: [],
       error: error instanceof Error ? error.message : 'Failed to fetch commits',
     }
-    if (ENABLE_CACHING) {
+    if (config.RECENT_FETCH_CACHING) {
       cache.set(cacheKey, { data: errorData, timestamp: Date.now() })
     }
     return errorData
