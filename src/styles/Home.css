@@ -1,0 +1,151 @@
+:root {
+  background-color: var(--background-color);
+  --card-border: rgba(128, 128, 128, 0.2);
+}
+
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.home-content {
+  display: flex;
+  margin: 0px 100px;
+  margin-top: 100px;
+  min-height: 85%;
+  max-height: 85%;
+  background: transparent;
+  gap: 2rem;
+
+  color: var(--text);
+}
+
+.home-recent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 40px;
+
+  scroll-behavior: smooth;
+}
+
+.home-right {
+  margin-left: auto;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.home-profile-card {
+  height: 50%;
+}
+
+.home-uptime-card {
+  height: 50%;
+}
+
+.home-card {
+  background: var(--background-dark);
+	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
+	border-radius: 40px;
+	border: 1px solid var(--card-border);
+  transition: all 0.3s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.home-card:hover {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.recent-header {
+  align-self: center;
+}
+
+.recent-fetch {
+  overflow-y: scroll;
+  max-height: calc(100vh - 200px);
+}
+
+/* Custom scrollbar styling */
+.recent-fetch::-webkit-scrollbar {
+  width: 8px;
+}
+
+.recent-fetch::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 10px;
+}
+
+.recent-fetch::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.4);
+  border-radius: 10px;
+}
+
+.recent-fetch::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.6);
+}
+
+.commit-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  margin: 0.5rem;
+
+  border: 1px solid var(--card-border);
+  border-radius: 30px;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.commit-item:hover {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.commit-message {
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.commit-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.commit-author {
+  color: var(--text);
+}
+
+.commit-date {
+  color: var(--text);
+  font-style: italic;
+}
+
+.commit-link {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.commit-link:hover {
+  opacity: 1;
+}
