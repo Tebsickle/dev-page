@@ -1,4 +1,11 @@
-# TEST FILE 3
+---
+title: test2
+date: 3/10/2026
+author: Tebs
+pinned: no
+---
+
+# TEST FILE 1
 
 # Heading 1
 
@@ -12,6 +19,9 @@ text
 
 ```
 code block
+that
+is
+multiple lines
 ```
 
 > level 1 quote

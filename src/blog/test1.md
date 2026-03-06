@@ -2,6 +2,7 @@
 title: test1 blog
 date: 3/4/2026
 author: Tebs
+pinned: yes
 ---
 
 # TEST FILE 1

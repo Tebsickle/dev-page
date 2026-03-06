@@ -14,7 +14,7 @@ const markdownModules = import.meta.glob('../blog/*.md', {
 export default function BlogPost() {
 	const { slug = '' } = useParams()
 	const [content, setContent] = useState('')
-	const [title, setTitle] = useState(slug)
+	const [title, setTitle] = useState(`${slug}.md`)
 	const [author, setAuthor] = useState('Unknown author')
 	const [date, setDate] = useState('Unknown date')
 	const [status, setStatus] = useState<'loading' | 'ready' | 'not-found'>('loading')
@@ -31,7 +31,7 @@ export default function BlogPost() {
 		if (!moduleLoader) {
 			setStatus('not-found')
 			setContent('')
-			setTitle(slug)
+			setTitle(`${slug}.md`)
 			setAuthor('Unknown author')
 			setDate('Unknown date')
 			return
@@ -54,7 +54,7 @@ export default function BlogPost() {
 				if (!isActive) return
 				setStatus('not-found')
 				setContent('')
-				setTitle(slug)
+				setTitle(`${slug}.md`)
 				setAuthor('Unknown author')
 				setDate('Unknown date')
 			})
@@ -80,13 +80,17 @@ export default function BlogPost() {
 						{status === 'loading' && <p>Loading post...</p>}
 						{status === 'not-found' && (
 							<>
-								<p>Post not found.</p>
+								<p>Markdown file not found.</p>
 								<Link to="/blog" className="blog-back-link">
 									Back to all posts
 								</Link>
 							</>
 						)}
-						{status === 'ready' && <ReactMarkdown>{content}</ReactMarkdown>}
+						{status === 'ready' && (
+							<ReactMarkdown>
+								{content}
+							</ReactMarkdown>
+						)}
 					</div>
 				</article>
 			</div>
