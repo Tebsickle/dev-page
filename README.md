@@ -23,4 +23,4 @@ Have fun looking thru my incoherent site, or something.
 
 - make recent (on home page) sortable via blog, github (main), and github (dev).
 
-- /projects crashes on reload?????? it gets unloaded????
+- /projects crashes on reload?????? it gets unloaded???? its a github pages thing i believe
