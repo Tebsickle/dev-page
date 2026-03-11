@@ -22,3 +22,5 @@ Have fun looking thru my incoherent site, or something.
     - content for blog to consider: #root vs :root in css. <div className="root"> vs actual root of the page...?
 
 - make recent (on home page) sortable via blog, github (main), and github (dev).
+
+- /projects crashes on reload?????? it gets unloaded????
