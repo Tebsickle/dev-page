@@ -4,5 +4,8 @@
 	--background-dark: rgba(0, 0, 0, 0.1);
 
 	--text: #ffd0ec;
+	--text-alt: #be8ea0;
 	--text-highlighted: #a90046;
+
+	font-family: "JetBrains Mono", monospace;
 }
