@@ -4,6 +4,7 @@ import RecentFetch from '../components/home/RecentFetch'
 import fallbackPfp from '../assets/home/pfp.png'
 import GitHubIcon from '../assets/home/github.svg'
 import LinkedInIcon from '../assets/home/linkedin.png'
+import { config } from '../config/config'
 
 export default function Home() {
   document.body.style.overflowY = "hidden";
@@ -13,7 +14,7 @@ export default function Home() {
       <div className="home-content">
         
         <div className="home-card home-recent">
-          <h1 className="recent-header">Recent</h1>
+          <h1 className="recent-header">Recent GitHub Activity</h1>
           <RecentFetch />
 
         </div>
@@ -23,7 +24,7 @@ export default function Home() {
           {/* Profile card */}
           <div className="home-card home-profile-card">
             <div className="profile-header">
-              <img className="profile-pic" src={`https://github.com/Tebsickle.png`} alt="Profile Picture" onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallbackPfp }} />
+              <img className="profile-pic" src={`https://github.com/${config.GITHUB_USERNAME}.png`} alt="Profile Picture" onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallbackPfp }} />
               <div className="profile-nametags">
                 <h1>Sam Smithers</h1>
                 <h3>@Tebs/@Tebsickle</h3>
