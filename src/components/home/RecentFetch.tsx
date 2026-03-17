@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { fetchRecentCommits } from '../../utils/home/RecentFetchAPI'
+import { fetchAllProfileCommits } from '../../utils/home/RecentFetchAPI'
 import { config } from '../../config/config'
 
 interface Commit {
   message: string
   url: string
+  repo: string
   author: {
     name: string
   }
@@ -35,7 +36,7 @@ export default function RecentFetch() {
   useEffect(() => {
     const getCommits = async () => {
       setLoading(true)
-      const result = await fetchRecentCommits('Tebsickle', 'dev-page', config.COMMIT_FETCH_COUNT)
+      const result = await fetchAllProfileCommits(config.GITHUB_USERNAME, config.COMMIT_FETCH_COUNT)
 
       if (result.error) {
         setError(result.error)
@@ -67,8 +68,11 @@ export default function RecentFetch() {
         <div key={index} className="commit-item">
           <p className="commit-message">{commit.message}</p>
           <div className="commit-meta">
-            <span className="commit-author">{commit.author.name}</span>
-            <span className="commit-date">{formatCommitDate(commit.date)}</span>
+            <span className="commit-repo">{commit.repo}</span>
+            <div className="commit-right-meta">
+              <span className="commit-author">{commit.author.name}</span>
+              <span className="commit-date">{formatCommitDate(commit.date)}</span>
+            </div>
           </div>
           <a href={commit.url} target="_blank" rel="noopener noreferrer" className="commit-link">
             View Commit →
