@@ -97,7 +97,7 @@ export async function fetchRecentCommits(
 
 export async function fetchAllProfileCommits(
   username: string,
-  limit: number = 15
+  limit: number = 10
 ): Promise<CommitData> {
   const cacheKey = getProfileCacheKey(username, limit)
 
@@ -134,7 +134,7 @@ export async function fetchAllProfileCommits(
     for (const repo of repos) {
       try {
         const commitsResponse = await fetch(
-          `https://api.github.com/repos/${username}/${repo.name}/commits?per_page=5`
+          `https://api.github.com/repos/${username}/${repo.name}/commits?per_page=10`
         )
 
         if (commitsResponse.ok) {
