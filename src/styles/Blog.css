@@ -26,8 +26,8 @@
 
 .blog-card {
   background: var(--background-dark);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 40px;
   border: 1px solid var(--card-border);
   transition: all 0.3s ease-in-out;
